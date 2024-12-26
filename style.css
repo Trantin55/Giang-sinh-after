@@ -295,6 +295,36 @@ section{
 .santa1 .image-santa-hand img{
     width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+    .santa1 {
+        position: relative;
+    }
+    
+    .image-santa-hand {
+        position: absolute;
+        width: 40px;        /* Điều chỉnh kich thước tay santa */
+        height: auto;
+        top: 50%;           /* Căn giữa theo chiều dọc */
+        left: 50%;          /* Căn giữa theo chiều ngang */
+        transform: translate(-50%, -50%);   /* Căn chỉnh chính xác vị trí*/
+        z-index: 2;   /* Đảm bảo hiển thị trên các phần tử khác*/
+    }
+
+    .image-santa-hand img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Cho màn hình nhỏ hơn */
+@media screen and (max-width: 480px){
+        .image-santa-hand {
+            width: 30px;   /* Giảm kích thước cho màn hình nhỏ hơn*/
+            top: 45%;      /* Điều chỉnh vị trí theo chiều dọc */
+            left: 45%;     /* Điều chỉnh vị trí theo chiều ngang */
+        }
+}
 .box-reindeer{
     position: relative;
     width: 500px;
@@ -1273,6 +1303,64 @@ marquee{
         100% {
             top: 60%;
             transform: translateX(-50%) rotateX(360deg);
+        }
+    }
+
+    .shadow-boxGift {
+        bottom: 39%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .box-gift {
+        position: absolute;
+        top: -150px;         /* Đặt vị trí cao hơn mặt trăng */
+        left: 50%;
+        transform: translateX(-50%);
+        animation: giftFallMobile 5s forwards;  /* Tăng thời gian animation để rơi tự nhiên hơn */
+        z-index: 1000;
+    }
+
+    @keyframes giftFallMobile {
+        0% {
+            top: -150px;     /* Vị trí bắt đầu */
+            transform: translateX(-50%) rotate(0deg);
+        }
+        50% {
+            top: 30%;       /* Điểm giữa của animation */
+            transform: translateX(-50%) rotate(180deg);
+        }
+        100% {
+            top: 70%;       /* Vị trí kết thúc */
+            transform: translateX(-50%) rotate(360deg);
+        }
+    }
+
+    .shadow-boxGift {
+        bottom: 29%;        /* Điều chỉnh vị trí shadow */
+    }
+}
+
+/* Cho màn hình nhỏ hơn */
+@media screen and (max-width: 480px) {
+    .box-gift {
+        width: 80px;
+        height: 80px;
+        top: -180px;        /* Đặt cao hơn nữa cho màn hình nhỏ */
+    }
+
+    @keyframes giftFallMobile {
+        0% {
+            top: -180px;
+            transform: translateX(-50%) rotate(0deg);
+        }
+        50% {
+            top: 25%;
+            transform: translateX(-50%) rotate(180deg);
+        }
+        100% {
+            top: 60%;
+            transform: translateX(-50%) rotate(360deg);
         }
     }
 
